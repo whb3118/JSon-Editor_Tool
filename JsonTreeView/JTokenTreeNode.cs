@@ -45,6 +45,10 @@ namespace ZTn.Json.JsonTreeView
             if (TreeView != null)
             {
                 NodeFont = ((JTokenTreeUserControl)TreeView.Parent).CollapsedFont;
+                if (Newtonsoft.Json.Linq.JTokenType.Property.Equals(this.JTokenTag.Type))
+                {
+                    this.ForeColor = System.Drawing.Color.Black;
+                }
             }
         }
 
@@ -57,6 +61,12 @@ namespace ZTn.Json.JsonTreeView
             if (TreeView != null)
             {
                 NodeFont = ((JTokenTreeUserControl)TreeView.Parent).ExpandedFont;
+                if (Newtonsoft.Json.Linq.JTokenType.Property.Equals(this.JTokenTag.Type))
+                {
+                    this.ForeColor = System.Drawing.Color.Magenta;
+                }
+                
+
             }
         }
 
