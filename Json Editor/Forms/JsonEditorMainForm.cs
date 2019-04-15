@@ -126,7 +126,7 @@ namespace ZTn.Json.Editor.Forms
 
             try
             {
-                using (var stream = new FileStream(OpenedFileName, FileMode.Open))
+                using (var stream = new FileStream(OpenedFileName, FileMode.Create,FileAccess.Write))
                 {
                     jTokenTree.SaveJson(stream);
                 }
