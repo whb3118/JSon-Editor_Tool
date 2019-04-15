@@ -95,9 +95,9 @@ namespace ZTn.Json.Editor.Forms
             this.jTokenTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.jTokenTree.CollapsedFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.jTokenTree.ExpandedFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline);
-            this.jTokenTree.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.jTokenTree.CollapsedFont = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.jTokenTree.ExpandedFont = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Underline);
+            this.jTokenTree.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.jTokenTree.Location = new System.Drawing.Point(3, 3);
             this.jTokenTree.Margin = new System.Windows.Forms.Padding(6);
             this.jTokenTree.Name = "jTokenTree";
