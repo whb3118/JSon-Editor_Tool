@@ -35,11 +35,14 @@ namespace ZTn.Json.Editor.Forms
             this.jTokenTree = new ZTn.Json.JsonTreeView.Controls.JTokenTreeUserControl();
             this.jsonTypeComboBox = new System.Windows.Forms.ComboBox();
             this.jsonValueTextBox = new System.Windows.Forms.TextBox();
-            this.jsonValueLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.newtonsoftJsonTypeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.formMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.ToolStripMenuItem_new = new System.Windows.Forms.ToolStripMenuItem();
+            this.JsonObjectToolStripMenuItem_new_object = new System.Windows.Forms.ToolStripMenuItem();
+            this.JsonArrayToolStripMenuItem_new_array = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_open = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newJsonObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +82,6 @@ namespace ZTn.Json.Editor.Forms
             this.jsonTreeViewSplitContainer.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.jsonTypeComboBox);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.jsonValueTextBox);
-            this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.jsonValueLabel);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.label2);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.newtonsoftJsonTypeTextBox);
             this.jsonTreeViewSplitContainer.Panel2.Controls.Add(this.label1);
@@ -108,7 +110,7 @@ namespace ZTn.Json.Editor.Forms
             this.jsonTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.jsonTypeComboBox.Enabled = false;
             this.jsonTypeComboBox.FormattingEnabled = true;
-            this.jsonTypeComboBox.Location = new System.Drawing.Point(3, 54);
+            this.jsonTypeComboBox.Location = new System.Drawing.Point(66, 6);
             this.jsonTypeComboBox.Name = "jsonTypeComboBox";
             this.jsonTypeComboBox.Size = new System.Drawing.Size(154, 20);
             this.jsonTypeComboBox.TabIndex = 7;
@@ -120,48 +122,39 @@ namespace ZTn.Json.Editor.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.jsonValueTextBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.jsonValueTextBox.ForeColor = System.Drawing.Color.Blue;
-            this.jsonValueTextBox.Location = new System.Drawing.Point(3, 90);
+            this.jsonValueTextBox.Location = new System.Drawing.Point(3, 40);
             this.jsonValueTextBox.Multiline = true;
             this.jsonValueTextBox.Name = "jsonValueTextBox";
             this.jsonValueTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.jsonValueTextBox.Size = new System.Drawing.Size(600, 418);
+            this.jsonValueTextBox.Size = new System.Drawing.Size(600, 467);
             this.jsonValueTextBox.TabIndex = 6;
             this.jsonValueTextBox.Enter += new System.EventHandler(this.jsonValueTextBox_Enter);
+            this.jsonValueTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
             this.jsonValueTextBox.Leave += new System.EventHandler(this.jsonValueTextBox_Leave);
-            // 
-            // jsonValueLabel
-            // 
-            this.jsonValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.jsonValueLabel.AutoSize = true;
-            this.jsonValueLabel.Location = new System.Drawing.Point(3, 75);
-            this.jsonValueLabel.Name = "jsonValueLabel";
-            this.jsonValueLabel.Size = new System.Drawing.Size(65, 12);
-            this.jsonValueLabel.TabIndex = 5;
-            this.jsonValueLabel.Text = "JSON Value";
-            this.jsonValueLabel.TextChanged += new System.EventHandler(this.jsonValueTextBox_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(301, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "NewtonSoft.Json Type";
+            this.label2.Visible = false;
             // 
             // newtonsoftJsonTypeTextBox
             // 
-            this.newtonsoftJsonTypeTextBox.Location = new System.Drawing.Point(3, 18);
+            this.newtonsoftJsonTypeTextBox.Location = new System.Drawing.Point(443, 5);
             this.newtonsoftJsonTypeTextBox.Name = "newtonsoftJsonTypeTextBox";
             this.newtonsoftJsonTypeTextBox.ReadOnly = true;
             this.newtonsoftJsonTypeTextBox.Size = new System.Drawing.Size(154, 21);
             this.newtonsoftJsonTypeTextBox.TabIndex = 4;
+            this.newtonsoftJsonTypeTextBox.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 39);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 1;
@@ -170,6 +163,8 @@ namespace ZTn.Json.Editor.Forms
             // formMenuStrip
             // 
             this.formMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_new,
+            this.ToolStripMenuItem_open,
             this.fileToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.formMenuStrip.Location = new System.Drawing.Point(0, 0);
@@ -177,6 +172,36 @@ namespace ZTn.Json.Editor.Forms
             this.formMenuStrip.Size = new System.Drawing.Size(1008, 25);
             this.formMenuStrip.TabIndex = 0;
             this.formMenuStrip.Text = "menuStrip1";
+            // 
+            // ToolStripMenuItem_new
+            // 
+            this.ToolStripMenuItem_new.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.JsonObjectToolStripMenuItem_new_object,
+            this.JsonArrayToolStripMenuItem_new_array});
+            this.ToolStripMenuItem_new.Name = "ToolStripMenuItem_new";
+            this.ToolStripMenuItem_new.Size = new System.Drawing.Size(44, 21);
+            this.ToolStripMenuItem_new.Text = "新建";
+            // 
+            // JsonObjectToolStripMenuItem_new_object
+            // 
+            this.JsonObjectToolStripMenuItem_new_object.Name = "JsonObjectToolStripMenuItem_new_object";
+            this.JsonObjectToolStripMenuItem_new_object.Size = new System.Drawing.Size(172, 22);
+            this.JsonObjectToolStripMenuItem_new_object.Text = "新建 Json &Object";
+            this.JsonObjectToolStripMenuItem_new_object.Click += new System.EventHandler(this.JsonObjectToolStripMenuItem_new_object_Click);
+            // 
+            // JsonArrayToolStripMenuItem_new_array
+            // 
+            this.JsonArrayToolStripMenuItem_new_array.Name = "JsonArrayToolStripMenuItem_new_array";
+            this.JsonArrayToolStripMenuItem_new_array.Size = new System.Drawing.Size(172, 22);
+            this.JsonArrayToolStripMenuItem_new_array.Text = "新建 Json &Array";
+            this.JsonArrayToolStripMenuItem_new_array.Click += new System.EventHandler(this.JsonArrayToolStripMenuItem_new_array_Click);
+            // 
+            // ToolStripMenuItem_open
+            // 
+            this.ToolStripMenuItem_open.Name = "ToolStripMenuItem_open";
+            this.ToolStripMenuItem_open.Size = new System.Drawing.Size(44, 21);
+            this.ToolStripMenuItem_open.Text = "打开";
+            this.ToolStripMenuItem_open.Click += new System.EventHandler(this.ToolStripMenuItem_open_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -249,8 +274,8 @@ namespace ZTn.Json.Editor.Forms
             // aboutJsonEditorToolStripMenuItem
             // 
             this.aboutJsonEditorToolStripMenuItem.Name = "aboutJsonEditorToolStripMenuItem";
-            this.aboutJsonEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutJsonEditorToolStripMenuItem.Text = "About Json Editor";
+            this.aboutJsonEditorToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.aboutJsonEditorToolStripMenuItem.Text = "关于JSON编辑器";
             this.aboutJsonEditorToolStripMenuItem.Click += new System.EventHandler(this.aboutJsonEditorToolStripMenuItem_Click);
             // 
             // guiStatusStrip
@@ -294,7 +319,7 @@ namespace ZTn.Json.Editor.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.formMenuStrip;
             this.Name = "JsonEditorMainForm";
-            this.Text = "ZTn Json Editor";
+            this.Text = "Json Editor";
             this.jsonTreeViewSplitContainer.Panel1.ResumeLayout(false);
             this.jsonTreeViewSplitContainer.Panel2.ResumeLayout(false);
             this.jsonTreeViewSplitContainer.Panel2.PerformLayout();
@@ -317,7 +342,6 @@ namespace ZTn.Json.Editor.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox newtonsoftJsonTypeTextBox;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label jsonValueLabel;
         private System.Windows.Forms.SplitContainer jsonTreeViewSplitContainer;
         private System.Windows.Forms.TextBox jsonValueTextBox;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -333,6 +357,10 @@ namespace ZTn.Json.Editor.Forms
         private System.Windows.Forms.ToolStripStatusLabel actionStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel jsonStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_new;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_open;
+        private System.Windows.Forms.ToolStripMenuItem JsonObjectToolStripMenuItem_new_object;
+        private System.Windows.Forms.ToolStripMenuItem JsonArrayToolStripMenuItem_new_array;
     }
 }
 

@@ -315,5 +315,46 @@ namespace ZTn.Json.Editor.Forms
                 SetJsonStatus("INVALID Json format", true);
             }
         }
+
+        private void ToolStripMenuItem_open_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = @"json files (*.json)|*.json|All files (*.*)|*.*",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var stream = openFileDialog.OpenFile())
+                {
+                    SetJsonSourceStream(stream, openFileDialog.FileName);
+                }
+
+            }
+        }
+
+        private void JsonObjectToolStripMenuItem_new_object_Click(object sender, EventArgs e)
+        {
+            jTokenTree.SetJsonSource("{}");
+
+            saveAsToolStripMenuItem.Enabled = true;
+        }
+
+        private void JsonArrayToolStripMenuItem_new_array_Click(object sender, EventArgs e)
+        {
+            jTokenTree.SetJsonSource("[]");
+
+            saveAsToolStripMenuItem.Enabled = true;
+        }
+
+        private void KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                ((TextBox)sender).SelectAll();
+            }
+        }
     }
 }
