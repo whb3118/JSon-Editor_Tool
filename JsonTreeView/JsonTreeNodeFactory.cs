@@ -63,7 +63,7 @@ namespace ZTn.Json.JsonTreeView
                     .ToArray()
                     );
             }
-
+            node.ForeColor = System.Drawing.Color.Maroon;
             return node;
         }
 
@@ -85,7 +85,7 @@ namespace ZTn.Json.JsonTreeView
                     .ToArray()
                     );
             }
-
+            node.ForeColor = System.Drawing.Color.Chocolate;
             return node;
         }
 
@@ -108,7 +108,6 @@ namespace ZTn.Json.JsonTreeView
                    .ToArray()
                    );
             }
-
             return node;
         }
 
@@ -134,7 +133,7 @@ namespace ZTn.Json.JsonTreeView
         public static TreeNode Create(JValue obj, int depth)
         {
             var node = new JValueTreeNode(obj);
-
+            node.ForeColor = System.Drawing.Color.Blue;
             return node;
         }
 
