@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace ZTn.Json.JsonTreeView
 {
@@ -95,8 +96,8 @@ namespace ZTn.Json.JsonTreeView
             {
                 return;
             }
-
-            using (var streamWriter = new StreamWriter(jsonStream))
+            UTF8Encoding utf8 = new UTF8Encoding(false);
+            using (var streamWriter = new StreamWriter(jsonStream, utf8))
             {
                 streamWriter.Write(jTokenValue.ToString());
             }
