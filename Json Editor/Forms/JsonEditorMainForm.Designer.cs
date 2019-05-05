@@ -56,6 +56,7 @@ namespace ZTn.Json.Editor.Forms
             this.actionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.jsonStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripMenuItem_new_window = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.jsonTreeViewSplitContainer)).BeginInit();
             this.jsonTreeViewSplitContainer.Panel1.SuspendLayout();
             this.jsonTreeViewSplitContainer.Panel2.SuspendLayout();
@@ -98,10 +99,10 @@ namespace ZTn.Json.Editor.Forms
             this.jTokenTree.CollapsedFont = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.jTokenTree.ExpandedFont = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Underline);
             this.jTokenTree.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.jTokenTree.Location = new System.Drawing.Point(3, 3);
+            this.jTokenTree.Location = new System.Drawing.Point(3, 6);
             this.jTokenTree.Margin = new System.Windows.Forms.Padding(6);
             this.jTokenTree.Name = "jTokenTree";
-            this.jTokenTree.Size = new System.Drawing.Size(389, 504);
+            this.jTokenTree.Size = new System.Drawing.Size(389, 501);
             this.jTokenTree.TabIndex = 2;
             this.jTokenTree.AfterSelect += new System.EventHandler<ZTn.Json.JsonTreeView.AfterSelectEventArgs>(this.jTokenTree_AfterSelect);
             // 
@@ -163,6 +164,7 @@ namespace ZTn.Json.Editor.Forms
             // formMenuStrip
             // 
             this.formMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_new_window,
             this.ToolStripMenuItem_new,
             this.ToolStripMenuItem_open,
             this.fileToolStripMenuItem,
@@ -308,6 +310,13 @@ namespace ZTn.Json.Editor.Forms
             this.jsonStatusLabel.Size = new System.Drawing.Size(69, 17);
             this.jsonStatusLabel.Text = "JsonStatus";
             // 
+            // ToolStripMenuItem_new_window
+            // 
+            this.ToolStripMenuItem_new_window.Name = "ToolStripMenuItem_new_window";
+            this.ToolStripMenuItem_new_window.Size = new System.Drawing.Size(56, 21);
+            this.ToolStripMenuItem_new_window.Text = "新窗口";
+            this.ToolStripMenuItem_new_window.Click += new System.EventHandler(this.ToolStripMenuItem_new_window_Click);
+            // 
             // JsonEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -361,6 +370,7 @@ namespace ZTn.Json.Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_open;
         private System.Windows.Forms.ToolStripMenuItem JsonObjectToolStripMenuItem_new_object;
         private System.Windows.Forms.ToolStripMenuItem JsonArrayToolStripMenuItem_new_array;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_new_window;
     }
 }
 

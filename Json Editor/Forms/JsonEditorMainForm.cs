@@ -5,6 +5,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
 namespace ZTn.Json.Editor.Forms
 {
@@ -355,6 +357,20 @@ namespace ZTn.Json.Editor.Forms
             {
                 ((TextBox)sender).SelectAll();
             }
+        }
+
+        private void ToolStripMenuItem_new_window_Click(object sender, EventArgs e)
+        {
+            Process ps = new Process();
+            ps.StartInfo.FileName = Application.ExecutablePath;// obj.ToString();
+            ps.Start();
+
+            /*
+            string str6 = Application.ExecutablePath;
+            Thread thtmp = new Thread(new ParameterizedThreadStart(run));
+            object appName = Application.ExecutablePath;//获取启动了应用程序的可执行文件的路径，包括可执行文件的名称。 
+            Thread.Sleep(2000);
+            thtmp.Start(appName);*/
         }
     }
 }
